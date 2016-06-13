@@ -38,9 +38,11 @@ define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_
                     entity: entity
                 };
                 this.emitSystemsEvent("remove.entity", event_1);
-                for (var key in this.systems) {
-                    if (this.hasComponent(entity, key)) {
-                        this.removeComponent(entity, key);
+                for (var key in this.components) {
+                    if (this.components.hasOwnProperty(key)) {
+                        if (this.hasComponent(entity, key)) {
+                            this.removeComponent(entity, key);
+                        }
                     }
                 }
                 this.emitSystemsEvent("removed.entity", event_1);

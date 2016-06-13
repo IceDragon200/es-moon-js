@@ -44,9 +44,11 @@ export default class GameWorld implements IWorld {
 
 			this.emitSystemsEvent("remove.entity", event);
 
-			for (let key in this.systems) {
-				if (this.hasComponent(entity, key)) {
-					this.removeComponent(entity, key);
+			for (let key in this.components) {
+				if (this.components.hasOwnProperty(key)) {
+					if (this.hasComponent(entity, key)) {
+						this.removeComponent(entity, key);
+					}
 				}
 			}
 
