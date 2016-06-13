@@ -20,7 +20,7 @@ export default class StateMap extends StateBase {
 		this.game.world.createEntity(function(entity, world) {
 			world.addComponent(entity, new ComponentPosition());
 			const sprite = new ComponentSprite();
-			sprite.texture = "placeholders";
+			sprite.texture = "ph_knight";
 			world.addComponent(entity, sprite);
 		});
 

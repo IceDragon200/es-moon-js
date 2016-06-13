@@ -10,9 +10,9 @@ define(["require", "exports", "states/StateMap", "Game"], function (require, exp
         }
         function preload(cb) {
             game.assetLoader
-                .add("icons/weapons/spear", "/assets/icons/weapons/spear.png")
-                .add("placeholders", "/assets/placeholders.png")
-                .load(function () { cb(); });
+                .add("/icons/weapons/spear", "/assets/icons/weapons/spear.png")
+                .add("/assets/placeholders.json")
+                .load(cb);
             game.assetLoader.on("progress", function (l, resource) {
                 loaderProgress(l, resource);
             });

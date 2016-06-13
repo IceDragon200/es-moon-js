@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "image": "placeholders.png"
+  },
+  "frames": {
+    "ph_knight": {
+      "frame": { "x": 0, "y": 120, "w": 12, "h": 12 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x": 0, "y": 0, "w": 12, "h": 12 },
+      "sourceSize": {"w": 12, "h": 12 },
+      "pivot": {"x": 0.5, "y": 0.5 }
+    }
+  }
+}

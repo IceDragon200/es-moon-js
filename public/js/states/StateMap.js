@@ -25,7 +25,7 @@ define(["require", "exports", "states/StateBase", "components/ComponentPosition"
             this.game.world.createEntity(function (entity, world) {
                 world.addComponent(entity, new ComponentPosition_1.default());
                 var sprite = new ComponentSprite_1.default();
-                sprite.texture = "placeholders";
+                sprite.texture = "ph_knight";
                 world.addComponent(entity, sprite);
             });
             // State.elements

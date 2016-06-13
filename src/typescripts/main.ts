@@ -16,9 +16,9 @@ function main() {
 
 	function preload(cb) {
 		game.assetLoader
-			.add("icons/weapons/spear", "/assets/icons/weapons/spear.png")
-			.add("placeholders", "/assets/placeholders.png")
-			.load(() => { cb(); });
+			.add("/icons/weapons/spear", "/assets/icons/weapons/spear.png")
+			.add("/assets/placeholders.json")
+			.load(cb);
 
 		game.assetLoader.on("progress", (l, resource) => {
 			loaderProgress(l, resource);
