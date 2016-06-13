@@ -15,8 +15,8 @@ define(["require", "exports", "utils/Vec2", "ecs/Component"], function (require,
         ComponentSprite.prototype.getName = function () {
             return "sprite";
         };
-        ComponentSprite.prototype.setClipRect = function (rect) {
-            this._clipRect = rect;
+        ComponentSprite.prototype.setTexture = function (texture) {
+            this.texture = texture;
             this._requireRefresh = true;
         };
         return ComponentSprite;

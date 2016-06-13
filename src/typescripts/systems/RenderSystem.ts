@@ -1,5 +1,4 @@
 import ComponentSprite from "components/ComponentSprite";
-import Game from "Game";
 import System from "ecs/System";
 
 export default class RenderSystem extends System {
@@ -12,8 +11,7 @@ export default class RenderSystem extends System {
 
 			if ("sprite" === component.getName()) {
 				const sp: ComponentSprite = <any>component;
-				const texture = Game.instance.assetLoader.resources[sp.texture].texture;
-				sp._sprite = new PIXI.Sprite(texture);
+				sp._sprite = new PIXI.Sprite();
 				sp._requireRefresh = true;
 				console.log("RenderSystem : Initialized Sprite");
 				this.view.addChild(sp._sprite);
@@ -40,7 +38,7 @@ export default class RenderSystem extends System {
 			const sp = <ComponentSprite>comps["sprite"];
 			if (sp._requireRefresh) {
 				sp._requireRefresh = false;
-				// TODO what is the clipRect on this darn thing D8<
+				sp._sprite.texture = PIXI.utils.TextureCache[sp.texture];
 			}
 		});
 	}

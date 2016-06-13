@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "Game", "ecs/System"], function (require, exports, Game_1, System_1) {
+define(["require", "exports", "ecs/System"], function (require, exports, System_1) {
     var RenderSystem = (function (_super) {
         __extends(RenderSystem, _super);
         function RenderSystem() {
@@ -13,8 +13,7 @@ define(["require", "exports", "Game", "ecs/System"], function (require, exports,
                 var component = event.component;
                 if ("sprite" === component.getName()) {
                     var sp = component;
-                    var texture = Game_1.default.instance.assetLoader.resources[sp.texture].texture;
-                    sp._sprite = new PIXI.Sprite(texture);
+                    sp._sprite = new PIXI.Sprite();
                     sp._requireRefresh = true;
                     console.log("RenderSystem : Initialized Sprite");
                     _this.view.addChild(sp._sprite);
@@ -37,6 +36,7 @@ define(["require", "exports", "Game", "ecs/System"], function (require, exports,
                 var sp = comps["sprite"];
                 if (sp._requireRefresh) {
                     sp._requireRefresh = false;
+                    sp._sprite.texture = PIXI.utils.TextureCache[sp.texture];
                 }
             });
         };

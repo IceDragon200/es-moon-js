@@ -6,7 +6,6 @@ export default class ComponentSprite extends Component {
 	public texture: string;
 	public position = new Vec2(0, 0);
 	public opacity: number = 1.0;
-	public _clipRect: PIXI.Rectangle;
 	public _sprite: PIXI.Sprite;
 	public _requireRefresh: boolean = false;
 
@@ -14,8 +13,8 @@ export default class ComponentSprite extends Component {
 		return "sprite";
 	}
 
-	public setClipRect(rect: PIXI.Rectangle) {
-		this._clipRect = rect;
+	public setTexture(texture: string) {
+		this.texture = texture;
 		this._requireRefresh = true;
 	}
 }
