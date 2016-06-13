@@ -16,15 +16,14 @@
   "dependencies": {},
   "devDependencies": {},
   "homepage": "https://github.com/GoodBoyDigital/pixi.js",
-  "version": "3.0.9",
-  "_release": "3.0.9",
+  "version": "3.0.11",
+  "_release": "3.0.11",
   "_resolution": {
     "type": "version",
-    "tag": "v3.0.9",
-    "commit": "962f5bdff1ed2d96cfeaef22897ed83b7cce79bd"
+    "tag": "v3.0.11",
+    "commit": "7eb36db3c755ce2a34f2950a6db9b68706a9b650"
   },
-  "_source": "git://github.com/GoodBoyDigital/pixi.js.git",
-  "_target": "~3.0.9",
-  "_originalSource": "pixi",
-  "_direct": true
+  "_source": "https://github.com/GoodBoyDigital/pixi.js.git",
+  "_target": "^3.0.11",
+  "_originalSource": "pixi.js"
 }

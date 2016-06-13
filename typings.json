@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
+    "pixi.js": "registry:dt/pixi.js#3.0.9+20160404013751",
+    "wolfy87-eventemitter": "registry:dt/wolfy87-eventemitter#4.2.9+20160524142429"
+  }
+}

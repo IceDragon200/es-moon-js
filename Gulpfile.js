@@ -6,7 +6,7 @@ const browserify = require("gulp-browserify");
 const compileTypeScripts = function() {
 	return gulp.src("src/typescripts/**/*.ts")
 		.pipe(ts({
-			"module": "commonjs",
+			"module": "amd",
 			"target": "es5",
 			"noImplicitAny": false,
 			"rootDir": "src/typescripts"
@@ -24,14 +24,12 @@ gulp.task("compile", function() {
 	return compileTypeScripts();
 });
 
-gulp.task("concat", function(argument) {
+gulp.task("concat", ["compile"], function(argument) {
 	return browserifyApplication();
 });
 
-gulp.task("default", ["compile", "concat"]);
+gulp.task("build", ["concat"]);
+gulp.task("default", ["build"]);
 gulp.task("watch", function() {
-	watch("src/typescripts/**/*.ts", function() {
-		compileTypeScripts();
-		browserifyApplication();
-	});
+	gulp.watch("src/typescripts/**/*.ts", ["build"]);
 });
