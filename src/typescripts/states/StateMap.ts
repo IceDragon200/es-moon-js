@@ -11,15 +11,20 @@ export default class StateMap extends StateBase {
 				this.game.world.update();
 			}
 		};
-		this.addElement(worldUpdater);
+		// World.systems
+		const rsys = new RenderSystem();
+		rsys.view = this.view;
+		this.game.world.addSystem(rsys);
+
+		// World.entities
 		this.game.world.createEntity(function(entity, world) {
 			world.addComponent(entity, new ComponentPosition());
 			const sprite = new ComponentSprite();
 			sprite.texture = "placeholders";
 			world.addComponent(entity, sprite);
 		});
-		const rsys = new RenderSystem();
-		rsys.view = this.view;
-		this.game.world.addSystem(rsys);
+
+		// State.elements
+		this.addElement(worldUpdater);
 	}
 }

@@ -17,16 +17,19 @@ define(["require", "exports", "states/StateBase", "components/ComponentPosition"
                     _this.game.world.update();
                 }
             };
-            this.addElement(worldUpdater);
+            // World.systems
+            var rsys = new RenderSystem_1.default();
+            rsys.view = this.view;
+            this.game.world.addSystem(rsys);
+            // World.entities
             this.game.world.createEntity(function (entity, world) {
                 world.addComponent(entity, new ComponentPosition_1.default());
                 var sprite = new ComponentSprite_1.default();
                 sprite.texture = "placeholders";
                 world.addComponent(entity, sprite);
             });
-            var rsys = new RenderSystem_1.default();
-            rsys.view = this.view;
-            this.game.world.addSystem(rsys);
+            // State.elements
+            this.addElement(worldUpdater);
         };
         return StateMap;
     })(StateBase_1.default);
