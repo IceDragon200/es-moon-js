@@ -7,6 +7,7 @@ export default class Game {
 	public assetLoader = PIXI.loader;
 	public stateManager = new StateManager();
 	public world = new GameWorld();
+	public ticks: number = 0;
 
 	public static instance: Game;
 
@@ -15,6 +16,7 @@ export default class Game {
 	}
 
 	public update() {
+		this.ticks++;
 		this.stateManager.update();
 	}
 }
