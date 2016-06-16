@@ -2,6 +2,7 @@ import StateBase from "states/StateBase";
 import ComponentPosition from "components/ComponentPosition";
 import ComponentSprite from "components/ComponentSprite";
 import RenderSystem from "systems/RenderSystem";
+import PlayerInputSystem from "systems/PlayerInputSystem";
 import Table from "utils/Table";
 import TableUtils from "utils/TableUtils";
 import AStar from "utils/AStar";
@@ -18,6 +19,7 @@ export default class StateMap extends StateBase {
 		const rsys = new RenderSystem();
 		rsys.view = this.view;
 		this.game.world.addSystem(rsys);
+		this.game.world.addSystem(new PlayerInputSystem());
 
 		// World.entities
 		this.game.world.createEntity(function(entity, world) {
@@ -47,5 +49,11 @@ export default class StateMap extends StateBase {
 		//for (let row of TableUtils.toCsvMap(result)) {
 		//	console.log(row);
 		//}
+	}
+
+	public terminate() {
+		super.terminate();
+		this.game.world.clearSystems();
+		this.game.world.clearEntities();
 	}
 }
