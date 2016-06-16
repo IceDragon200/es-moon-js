@@ -51,6 +51,11 @@ define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_
         GameWorld.prototype.removeEntity = function (entity) {
             this.removeEntityById(entity.id);
         };
+        GameWorld.prototype.clearEntities = function () {
+            while (this.entities.length > 0) {
+                this.removeEntity(this.entities[0]);
+            }
+        };
         GameWorld.prototype.addComponent = function (entity, component) {
             var comps = this.components[component.getName()] = this.components[component.getName()] || {};
             var event = {
@@ -118,11 +123,22 @@ define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_
         GameWorld.prototype.addSystem = function (system) {
             this.systems.push(system);
         };
+        GameWorld.prototype.clearSystems = function () {
+            for (var _i = 0, _a = this.systems; _i < _a.length; _i++) {
+                var system = _a[_i];
+                system.onDestroy();
+            }
+            this.systems.length = 0;
+        };
         GameWorld.prototype.update = function () {
             this.ticks++;
-            for (var i = 0; i < this.systems.length; ++i) {
-                this.systems[i].update(this, this.ticks);
+            for (var _i = 0, _a = this.systems; _i < _a.length; _i++) {
+                var system = _a[_i];
+                system.update(this, this.ticks);
             }
+        };
+        GameWorld.prototype.onDestroy = function () {
+            this.clearSystems();
         };
         return GameWorld;
     })();

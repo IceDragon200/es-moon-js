@@ -17,9 +17,13 @@ interface IWorld {
 	removeComponent(entity: IEntity, component: string): void;
 	filterByComponents(components: Array<string>, callback: (entity: IEntity, packet: IMap<IComponent>) => void): void;
 	addSystem(system: ISystem): void;
+	onDestroy();
+	clearSystems();
+	clearEntities();
 }
 
 interface ISystem {
 	events: Wolfy87EventEmitter.EventEmitter;
+	onDestroy();
 	update(world: IWorld, ticks: number);
 }

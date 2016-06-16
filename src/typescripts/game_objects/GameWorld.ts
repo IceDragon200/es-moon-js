@@ -60,6 +60,12 @@ export default class GameWorld implements IWorld {
 		this.removeEntityById(entity.id);
 	}
 
+	public clearEntities() {
+		while (this.entities.length > 0) {
+			this.removeEntity(this.entities[0]);
+		}
+	}
+
 	public addComponent(entity: IEntity, component: IComponent) {
 		const comps = this.components[component.getName()] = this.components[component.getName()] || {};
 		const event = {
@@ -128,10 +134,21 @@ export default class GameWorld implements IWorld {
 		this.systems.push(system);
 	}
 
+	public clearSystems() {
+		for (let system of this.systems) {
+			system.onDestroy();
+		}
+		this.systems.length = 0;
+	}
+
 	public update() {
 		this.ticks++;
-		for (let i = 0; i < this.systems.length; ++i) {
-			this.systems[i].update(this, this.ticks);
+		for (let system of this.systems) {
+			system.update(this, this.ticks);
 		}
+	}
+
+	public onDestroy() {
+		this.clearSystems();
 	}
 }
