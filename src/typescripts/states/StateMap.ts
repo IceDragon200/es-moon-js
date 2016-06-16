@@ -2,6 +2,9 @@ import StateBase from "states/StateBase";
 import ComponentPosition from "components/ComponentPosition";
 import ComponentSprite from "components/ComponentSprite";
 import RenderSystem from "systems/RenderSystem";
+import Table from "utils/Table";
+import TableUtils from "utils/TableUtils";
+import AStar from "utils/AStar";
 
 export default class StateMap extends StateBase {
 	public init() {
@@ -26,5 +29,23 @@ export default class StateMap extends StateBase {
 
 		// State.elements
 		this.addElement(worldUpdater);
+
+		const table = Table.fromData({ x: 10, y: 10 }, [
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		]);
+		const result = AStar.findPath(table, { x: 1, y: 1 }, { x: 8, y: 3 });
+		console.log(result);
+		//for (let row of TableUtils.toCsvMap(result)) {
+		//	console.log(row);
+		//}
 	}
 }

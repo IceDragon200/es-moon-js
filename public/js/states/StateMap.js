@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "states/StateBase", "components/ComponentPosition", "components/ComponentSprite", "systems/RenderSystem"], function (require, exports, StateBase_1, ComponentPosition_1, ComponentSprite_1, RenderSystem_1) {
+define(["require", "exports", "states/StateBase", "components/ComponentPosition", "components/ComponentSprite", "systems/RenderSystem", "utils/Table", "utils/AStar"], function (require, exports, StateBase_1, ComponentPosition_1, ComponentSprite_1, RenderSystem_1, Table_1, AStar_1) {
     var StateMap = (function (_super) {
         __extends(StateMap, _super);
         function StateMap() {
@@ -30,6 +30,23 @@ define(["require", "exports", "states/StateBase", "components/ComponentPosition"
             });
             // State.elements
             this.addElement(worldUpdater);
+            var table = Table_1.default.fromData({ x: 10, y: 10 }, [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            ]);
+            var result = AStar_1.default.findPath(table, { x: 1, y: 1 }, { x: 8, y: 3 });
+            console.log(result);
+            //for (let row of TableUtils.toCsvMap(result)) {
+            //	console.log(row);
+            //}
         };
         return StateMap;
     })(StateBase_1.default);
