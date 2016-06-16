@@ -7,9 +7,33 @@
       "frame": { "x": 0, "y": 120, "w": 12, "h": 12 },
       "rotated": false,
       "trimmed": false,
-      "spriteSourceSize": {"x": 0, "y": 0, "w": 12, "h": 12 },
-      "sourceSize": {"w": 12, "h": 12 },
-      "pivot": {"x": 0.5, "y": 0.5 }
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 12, "h": 12 },
+      "sourceSize": { "w": 12, "h": 12 },
+      "pivot": { "x": 0.5, "y": 0.5 }
+    },
+    "ph_tile_water": {
+      "frame": { "x": 72, "y": 24, "w": 12, "h": 12 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 12, "h": 12 },
+      "sourceSize": { "w": 12, "h": 12 },
+      "pivot": { "x": 0.5, "y": 0.5 }
+    },
+    "ph_tile_grass": {
+      "frame": { "x": 84, "y": 24, "w": 12, "h": 12 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 12, "h": 12 },
+      "sourceSize": { "w": 12, "h": 12 },
+      "pivot": { "x": 0.5, "y": 0.5 }
+    },
+    "ph_tile_sand": {
+      "frame": { "x": 96, "y": 24, "w": 12, "h": 12 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 12, "h": 12 },
+      "sourceSize": { "w": 12, "h": 12 },
+      "pivot": { "x": 0.5, "y": 0.5 }
     }
   }
 }
