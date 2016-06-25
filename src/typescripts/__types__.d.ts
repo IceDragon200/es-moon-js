@@ -18,3 +18,7 @@ interface IVec3<T extends number> extends IVec2<T> {
 	z: T;
 }
 
+interface IMessage {
+	code: string;
+	parameters: Array<any>;
+}
