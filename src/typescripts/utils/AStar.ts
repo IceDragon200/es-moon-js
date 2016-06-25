@@ -43,7 +43,7 @@ export default class AStar {
 			const fromOrd = visited.get(current.x, current.y);
 			if (fromOrd == -1) return [];
 			const dir = EnumDir.fromOrdinal(fromOrd);
-			current = Vec2.from(current).add(dir.axis);
+			current = Vec2.add(Vec2.from(current), dir.axis);
 			path.push(current);
 		}
 		return path;

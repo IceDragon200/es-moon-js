@@ -16,34 +16,34 @@ export default class Vec2 implements IVec2<number> {
 		return new Vec2(this.x, this.y);
 	}
 
-	public set(x: number, y: number) {
-		this.x = x;
-		this.y = y;
-		return this;
+	public static set(vec: IVec2<number>, x: number, y: number) {
+		vec.x = x;
+		vec.y = y;
+		return vec;
 	}
 
-	public add(other: IVec2<number>) {
-		this.x += other.x;
-		this.y += other.y;
-		return this;
+	public static add(vec: IVec2<number>, other: IVec2<number>) {
+		vec.x += other.x;
+		vec.y += other.y;
+		return vec;
 	}
 
-	public sub(other: IVec2<number>) {
-		this.x -= other.x;
-		this.y -= other.y;
-		return this;
+	public static sub(vec: IVec2<number>, other: IVec2<number>) {
+		vec.x -= other.x;
+		vec.y -= other.y;
+		return vec;
 	}
 
-	public mul(other: IVec2<number>) {
-		this.x *= other.x;
-		this.y *= other.y;
-		return this;
+	public static mul(vec: IVec2<number>, other: IVec2<number>) {
+		vec.x *= other.x;
+		vec.y *= other.y;
+		return vec;
 	}
 
-	public div(other: IVec2<number>) {
-		this.x /= other.x;
-		this.y /= other.y;
-		return this;
+	public static div(vec: IVec2<number>, other: IVec2<number>) {
+		vec.x /= other.x;
+		vec.y /= other.y;
+		return vec;
 	}
 
 	public static equals(a: IVec2<number>, b: IVec2<number>) {
