@@ -1,4 +1,5 @@
 define(["require", "exports", "game_objects/GameWorld", "StateManager"], function (require, exports, GameWorld_1, StateManager_1) {
+    "use strict";
     var Game = (function () {
         function Game() {
             this.stage = new PIXI.Container();
@@ -13,7 +14,7 @@ define(["require", "exports", "game_objects/GameWorld", "StateManager"], functio
             this.stateManager.update();
         };
         return Game;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = Game;
 });

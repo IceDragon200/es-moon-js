@@ -3,7 +3,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "states/StateBase", "components/ComponentPosition", "components/ComponentSprite", "systems/RenderSystem", "systems/PlayerInputSystem", "utils/Table", "utils/AStar"], function (require, exports, StateBase_1, ComponentPosition_1, ComponentSprite_1, RenderSystem_1, PlayerInputSystem_1, Table_1, AStar_1) {
+define(["require", "exports", "states/StateBase", "components/ComponentPosition", "components/ComponentMapPosition", "components/ComponentSprite", "systems/MapSystem", "systems/MovementSystem", "systems/PlayerInputSystem", "systems/RenderSystem", "utils/Table", "utils/AStar"], function (require, exports, StateBase_1, ComponentPosition_1, ComponentMapPosition_1, ComponentSprite_1, MapSystem_1, MovementSystem_1, PlayerInputSystem_1, RenderSystem_1, Table_1, AStar_1) {
+    "use strict";
     var StateMap = (function (_super) {
         __extends(StateMap, _super);
         function StateMap() {
@@ -18,13 +19,16 @@ define(["require", "exports", "states/StateBase", "components/ComponentPosition"
                 }
             };
             // World.systems
+            this.game.world.addSystem(new PlayerInputSystem_1.default());
+            this.game.world.addSystem(new MovementSystem_1.default());
+            this.game.world.addSystem(new MapSystem_1.default({ x: 12, y: 12 }));
             var rsys = new RenderSystem_1.default();
             rsys.view = this.view;
             this.game.world.addSystem(rsys);
-            this.game.world.addSystem(new PlayerInputSystem_1.default());
             // World.entities
             this.game.world.createEntity(function (entity, world) {
                 world.addComponent(entity, new ComponentPosition_1.default());
+                world.addComponent(entity, new ComponentMapPosition_1.default());
                 var sprite = new ComponentSprite_1.default();
                 sprite.texture = "ph_knight";
                 world.addComponent(entity, sprite);
@@ -55,7 +59,7 @@ define(["require", "exports", "states/StateBase", "components/ComponentPosition"
             this.game.world.clearEntities();
         };
         return StateMap;
-    })(StateBase_1.default);
+    }(StateBase_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = StateMap;
 });

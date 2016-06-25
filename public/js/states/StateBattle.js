@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "states/StateBase", "battle/PhaseManager"], function (require, exports, StateBase_1, PhaseManager_1) {
+    "use strict";
     var StateBattle = (function (_super) {
         __extends(StateBattle, _super);
         function StateBattle() {
@@ -13,7 +14,7 @@ define(["require", "exports", "states/StateBase", "battle/PhaseManager"], functi
             this.phaseManager = new PhaseManager_1.default();
         };
         return StateBattle;
-    })(StateBase_1.default);
+    }(StateBase_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = StateBattle;
 });

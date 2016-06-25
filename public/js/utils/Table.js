@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Table = (function () {
         function Table(xsize, ysize, defaultValue) {
             if (defaultValue === void 0) { defaultValue = 0; }
@@ -64,7 +65,7 @@ define(["require", "exports"], function (require, exports) {
             return result;
         };
         return Table;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = Table;
 });

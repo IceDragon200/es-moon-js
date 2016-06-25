@@ -1,3 +1,4 @@
+import ComponentPosition from "components/ComponentPosition";
 import ComponentSprite from "components/ComponentSprite";
 import System from "ecs/System";
 
@@ -33,9 +34,14 @@ export default class RenderSystem extends System {
 		});
 	}
 
+	public onDestroy() {
+	}
+
 	public update(world: IWorld, ticks: number) {
-		world.filterByComponents(["sprite"], (_e, comps) => {
-			const sp = <ComponentSprite>comps["sprite"];
+		world.filterByComponents(["sprite", "position"], (_e, packet) => {
+			const sp = <ComponentSprite>packet["sprite"];
+			const position = <ComponentPosition>packet["position"];
+			sp._sprite.position.set(position.x, position.y);
 			if (sp._requireRefresh) {
 				sp._requireRefresh = false;
 				sp._sprite.texture = PIXI.utils.TextureCache[sp.texture];

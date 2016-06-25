@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var StateBase = (function () {
         function StateBase(game) {
             this.elements = [];
@@ -44,7 +45,7 @@ define(["require", "exports"], function (require, exports) {
             this.update();
         };
         return StateBase;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = StateBase;
 });

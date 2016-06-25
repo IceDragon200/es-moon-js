@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "ecs/Component"], function (require, exports, Component_1) {
+    "use strict";
     var ComponentActionPoints = (function (_super) {
         __extends(ComponentActionPoints, _super);
         function ComponentActionPoints() {
@@ -16,7 +17,7 @@ define(["require", "exports", "ecs/Component"], function (require, exports, Comp
             return "action_points";
         };
         return ComponentActionPoints;
-    })(Component_1.default);
+    }(Component_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = ComponentActionPoints;
 });

@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Key = (function () {
         function Key(code) {
             this.state = false;
@@ -7,7 +8,7 @@ define(["require", "exports"], function (require, exports) {
             this.code = code;
         }
         return Key;
-    })();
+    }());
     exports.Key = Key;
     var Keyboard = (function () {
         function Keyboard(filter) {
@@ -44,8 +45,8 @@ define(["require", "exports"], function (require, exports) {
         };
         Keyboard.prototype.initializeKeys = function (filter) {
             if (filter) {
-                for (var _i = 0; _i < filter.length; _i++) {
-                    var data = filter[_i];
+                for (var _i = 0, filter_1 = filter; _i < filter_1.length; _i++) {
+                    var data = filter_1[_i];
                     var k = new Key(data.code);
                     k.preventDefault = data.preventDefault;
                     this.keyStates[data.code] = k;
@@ -179,7 +180,7 @@ define(["require", "exports"], function (require, exports) {
             quote: 222,
         };
         return Keyboard;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = Keyboard;
 });

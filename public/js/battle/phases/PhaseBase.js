@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var PhaseBase = (function () {
         function PhaseBase() {
         }
@@ -21,7 +22,7 @@ define(["require", "exports"], function (require, exports) {
         PhaseBase.prototype.process = function (world) {
         };
         return PhaseBase;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = PhaseBase;
 });

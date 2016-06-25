@@ -1,4 +1,5 @@
 define(["require", "exports", "battle/phases/PhaseBattleStart", "battle/phases/PhaseRoundNext", "battle/phases/PhaseRoundStart", "battle/phases/PhaseNextTick", "battle/phases/PhaseTurnStart", "battle/phases/PhaseActionNext", "battle/phases/PhaseActionMake", "battle/phases/PhaseActionPrepare", "battle/phases/PhaseActionExecute", "battle/phases/PhaseActionEnd", "battle/phases/PhaseActionJudge", "battle/phases/PhaseTurnEnd", "battle/phases/PhaseTurnJudge", "battle/phases/PhaseRoundEnd", "battle/phases/PhaseRoundJudge", "battle/phases/PhaseBattleEnd", "battle/phases/PhaseBattleJudge"], function (require, exports, PhaseBattleStart_1, PhaseRoundNext_1, PhaseRoundStart_1, PhaseNextTick_1, PhaseTurnStart_1, PhaseActionNext_1, PhaseActionMake_1, PhaseActionPrepare_1, PhaseActionExecute_1, PhaseActionEnd_1, PhaseActionJudge_1, PhaseTurnEnd_1, PhaseTurnJudge_1, PhaseRoundEnd_1, PhaseRoundJudge_1, PhaseBattleEnd_1, PhaseBattleJudge_1) {
+    "use strict";
     var PhaseManager = (function () {
         function PhaseManager() {
             this.phases = {};
@@ -37,7 +38,7 @@ define(["require", "exports", "battle/phases/PhaseBattleStart", "battle/phases/P
             });
         };
         return PhaseManager;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = PhaseManager;
 });

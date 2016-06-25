@@ -1,4 +1,5 @@
 define(["require", "exports", "utils/Vec2"], function (require, exports, Vec2_1) {
+    "use strict";
     var EnumDir = (function () {
         function EnumDir(axis, ord, inv) {
             this.axis = axis;
@@ -21,7 +22,7 @@ define(["require", "exports", "utils/Vec2"], function (require, exports, Vec2_1)
         EnumDir.DIR4 = [EnumDir.SOUTH, EnumDir.WEST, EnumDir.EAST, EnumDir.NORTH];
         EnumDir.IDIR4 = [EnumDir.NORTH, EnumDir.EAST, EnumDir.WEST, EnumDir.SOUTH];
         return EnumDir;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = EnumDir;
 });

@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var TableUtils = (function () {
         function TableUtils() {
         }
@@ -21,7 +22,7 @@ define(["require", "exports"], function (require, exports) {
             return result;
         };
         return TableUtils;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = new TableUtils();
 });

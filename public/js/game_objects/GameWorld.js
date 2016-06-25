@@ -1,4 +1,5 @@
 define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_1) {
+    "use strict";
     var GameWorld = (function () {
         function GameWorld() {
             this.entities = [];
@@ -31,8 +32,8 @@ define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_
             var removed = _.remove(this.entities, function (obj) {
                 return id === obj.id;
             });
-            for (var _i = 0; _i < removed.length; _i++) {
-                var entity = removed[_i];
+            for (var _i = 0, removed_1 = removed; _i < removed_1.length; _i++) {
+                var entity = removed_1[_i];
                 var event_1 = {
                     world: this,
                     entity: entity
@@ -141,7 +142,7 @@ define(["require", "exports", "ecs/Entity"], function (require, exports, Entity_
             this.clearSystems();
         };
         return GameWorld;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = GameWorld;
 });

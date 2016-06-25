@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "ecs/System"], function (require, exports, System_1) {
+    "use strict";
     var RenderSystem = (function (_super) {
         __extends(RenderSystem, _super);
         function RenderSystem() {
@@ -31,9 +32,13 @@ define(["require", "exports", "ecs/System"], function (require, exports, System_
                 }
             });
         }
+        RenderSystem.prototype.onDestroy = function () {
+        };
         RenderSystem.prototype.update = function (world, ticks) {
-            world.filterByComponents(["sprite"], function (_e, comps) {
-                var sp = comps["sprite"];
+            world.filterByComponents(["sprite", "position"], function (_e, packet) {
+                var sp = packet["sprite"];
+                var position = packet["position"];
+                sp._sprite.position.set(position.x, position.y);
                 if (sp._requireRefresh) {
                     sp._requireRefresh = false;
                     sp._sprite.texture = PIXI.utils.TextureCache[sp.texture];
@@ -41,7 +46,7 @@ define(["require", "exports", "ecs/System"], function (require, exports, System_
             });
         };
         return RenderSystem;
-    })(System_1.default);
+    }(System_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = RenderSystem;
 });

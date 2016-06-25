@@ -1,4 +1,5 @@
 define(["require", "exports", "utils/Table", "utils/Vec2", "utils/EnumDir"], function (require, exports, Table_1, Vec2_1, EnumDir_1) {
+    "use strict";
     var AStar = (function () {
         function AStar() {
         }
@@ -41,13 +42,13 @@ define(["require", "exports", "utils/Table", "utils/Vec2", "utils/EnumDir"], fun
                 if (fromOrd == -1)
                     return [];
                 var dir = EnumDir_1.default.fromOrdinal(fromOrd);
-                current = Vec2_1.default.from(current).add(dir.axis);
+                current = Vec2_1.default.add(Vec2_1.default.from(current), dir.axis);
                 path.push(current);
             }
             return path;
         };
         return AStar;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = AStar;
 });

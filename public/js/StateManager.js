@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var StateManager = (function () {
         function StateManager() {
             this.states = [];
@@ -47,7 +48,7 @@ define(["require", "exports"], function (require, exports) {
                 state.tick();
         };
         return StateManager;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = StateManager;
 });

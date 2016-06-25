@@ -1,4 +1,5 @@
 define(["require", "exports", "states/StateMap", "Game"], function (require, exports, StateMap_1, Game_1) {
+    "use strict";
     function main() {
         var game = new Game_1.default();
         //const texture = game.assetLoader.resources["icons/weapons/spear"].texture;

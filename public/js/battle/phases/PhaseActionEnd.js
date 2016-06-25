@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "./PhaseBase"], function (require, exports, PhaseBase_1) {
+    "use strict";
     var PhaseActionEnd = (function (_super) {
         __extends(PhaseActionEnd, _super);
         function PhaseActionEnd() {
@@ -15,7 +16,7 @@ define(["require", "exports", "./PhaseBase"], function (require, exports, PhaseB
             });
         };
         return PhaseActionEnd;
-    })(PhaseBase_1.default);
+    }(PhaseBase_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = PhaseActionEnd;
 });

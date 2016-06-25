@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var IdUtils = (function () {
         function IdUtils() {
         }
@@ -42,7 +43,7 @@ define(["require", "exports"], function (require, exports) {
         IdUtils.BASE_64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split("");
         IdUtils.SAFE_BASE_64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_".split("");
         return IdUtils;
-    })();
+    }());
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = new IdUtils();
 });

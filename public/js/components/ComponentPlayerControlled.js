@@ -5,22 +5,16 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 define(["require", "exports", "ecs/Component"], function (require, exports, Component_1) {
     "use strict";
-    var ComponentSprite = (function (_super) {
-        __extends(ComponentSprite, _super);
-        function ComponentSprite() {
+    var ComponentPlayerControlled = (function (_super) {
+        __extends(ComponentPlayerControlled, _super);
+        function ComponentPlayerControlled() {
             _super.apply(this, arguments);
-            this.opacity = 1.0;
-            this._requireRefresh = false;
         }
-        ComponentSprite.prototype.getName = function () {
-            return "sprite";
+        ComponentPlayerControlled.prototype.getName = function () {
+            return "player_controlled";
         };
-        ComponentSprite.prototype.setTexture = function (texture) {
-            this.texture = texture;
-            this._requireRefresh = true;
-        };
-        return ComponentSprite;
+        return ComponentPlayerControlled;
     }(Component_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.default = ComponentSprite;
+    exports.default = ComponentPlayerControlled;
 });
