@@ -6,18 +6,10 @@ import MapSystem from "systems/MapSystem";
 import MovementSystem from "systems/MovementSystem";
 import PlayerInputSystem from "systems/PlayerInputSystem";
 import RenderSystem from "systems/RenderSystem";
-import Table from "utils/Table";
-import TableUtils from "utils/TableUtils";
-import AStar from "utils/AStar";
 
 export default class StateMap extends StateBase {
 	public init() {
 		super.init();
-		const worldUpdater = {
-			update: () => {
-				this.game.world.update();
-			}
-		};
 		// World.systems
 		this.game.world.addSystem(new PlayerInputSystem());
 		this.game.world.addSystem(new MovementSystem());
@@ -36,25 +28,12 @@ export default class StateMap extends StateBase {
 		});
 
 		// State.elements
+		const worldUpdater = {
+			update: () => {
+				this.game.world.update();
+			}
+		};
 		this.addElement(worldUpdater);
-
-		const table = Table.fromData({ x: 10, y: 10 }, [
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 0, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		]);
-		const result = AStar.findPath(table, { x: 1, y: 1 }, { x: 8, y: 3 });
-		console.log(result);
-		//for (let row of TableUtils.toCsvMap(result)) {
-		//	console.log(row);
-		//}
 	}
 
 	public terminate() {
